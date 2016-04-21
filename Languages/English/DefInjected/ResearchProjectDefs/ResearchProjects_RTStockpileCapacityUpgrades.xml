@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+	<ResearchProject_RTStockpileCapacityUpgrade_1.label>quantum stockpiles capacity 1</ResearchProject_RTStockpileCapacityUpgrade_1.label>
+	<ResearchProject_RTStockpileCapacityUpgrade_1.description>Quantum stockpiles now store 1 more item stack or 2 more chunks per space, for a total of 5 and 10 per space, respectively.</ResearchProject_RTStockpileCapacityUpgrade_1.description>
+
+	<ResearchProject_RTStockpileCapacityUpgrade_2.label>quantum stockpiles capacity 2</ResearchProject_RTStockpileCapacityUpgrade_2.label>
+	<ResearchProject_RTStockpileCapacityUpgrade_2.description>Quantum stockpiles now store 1 more item stack or 2 more chunks per space, for a total of 6 and 12 per space, respectively.</ResearchProject_RTStockpileCapacityUpgrade_2.description>
+
+	<ResearchProject_RTStockpileCapacityUpgrade_3.label>quantum stockpiles capacity 3</ResearchProject_RTStockpileCapacityUpgrade_3.label>
+	<ResearchProject_RTStockpileCapacityUpgrade_3.description>Quantum stockpiles now store 1 more item stack or 2 more chunks per space, for a total of 7 and 14 per space, respectively.</ResearchProject_RTStockpileCapacityUpgrade_3.description>
+
+	<ResearchProject_RTStockpileCapacityUpgrade_4.label>quantum stockpiles capacity 4</ResearchProject_RTStockpileCapacityUpgrade_4.label>
+	<ResearchProject_RTStockpileCapacityUpgrade_4.description>Quantum stockpiles now store 1 more item stack or 2 more chunks per space, for a total of 8 and 16 per space, respectively.</ResearchProject_RTStockpileCapacityUpgrade_4.description>
+
+</LanguageData>

@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+	<CompRTQuantumStockpile_QWConnect>Подключен к складу.</CompRTQuantumStockpile_QWConnect>
+	<CompRTQuantumStockpile_MaxStacks>Максимум штабелей на клетку:</CompRTQuantumStockpile_MaxStacks>
+	<CompRTQuantumStockpile_SparklesToggle>Индикация активности запасника</CompRTQuantumStockpile_SparklesToggle>
+	<CompRTQuantumStockpile_SparklesAreOn>Включена</CompRTQuantumStockpile_SparklesAreOn>
+	<CompRTQuantumStockpile_SparklesAreOff>Выключена</CompRTQuantumStockpile_SparklesAreOff>
+
+</LanguageData>

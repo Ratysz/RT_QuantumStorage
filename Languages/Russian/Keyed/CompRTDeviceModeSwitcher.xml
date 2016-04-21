@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+	<CompRTDeviceModeSwitcher_StockpileModeLabel>Перевести в режим хранения предметов</CompRTDeviceModeSwitcher_StockpileModeLabel>
+	<CompRTDeviceModeSwitcher_StockpileModeDesc>Устройство будет хранить еду, ресурсы, экиперовку...</CompRTDeviceModeSwitcher_StockpileModeDesc>
+	<CompRTDeviceModeSwitcher_ChunkSiloModeLabel>Перевести в режим хранения обломков</CompRTDeviceModeSwitcher_ChunkSiloModeLabel>
+	<CompRTDeviceModeSwitcher_ChunkSiloModeDesc>Устройство будет хранить каменные обломки и металлолом.</CompRTDeviceModeSwitcher_ChunkSiloModeDesc>
+
+</LanguageData>

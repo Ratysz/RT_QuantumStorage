@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+	<ResearchProject_RTStockpileCapacityUpgrade_1.label>квантовые запасники: емкость 1</ResearchProject_RTStockpileCapacityUpgrade_1.label>
+	<ResearchProject_RTStockpileCapacityUpgrade_1.description>Квантовые запасники теперь хранят еще 1 штабель или 2 обломка на клетку, всего 5 и 10 на клетку, соответственно.</ResearchProject_RTStockpileCapacityUpgrade_1.description>
+
+	<ResearchProject_RTStockpileCapacityUpgrade_2.label>квантовые запасники: емкость 2</ResearchProject_RTStockpileCapacityUpgrade_2.label>
+	<ResearchProject_RTStockpileCapacityUpgrade_2.description>Квантовые запасники теперь хранят еще 1 штабель или 2 обломка на клетку, всего 6 и 12 на клетку, соответственно.</ResearchProject_RTStockpileCapacityUpgrade_2.description>
+
+	<ResearchProject_RTStockpileCapacityUpgrade_3.label>квантовые запасники: емкость 3</ResearchProject_RTStockpileCapacityUpgrade_3.label>
+	<ResearchProject_RTStockpileCapacityUpgrade_3.description>Квантовые запасники теперь хранят еще 1 штабель или 2 обломка на клетку, всего 7 и 14 на клетку, соответственно.</ResearchProject_RTStockpileCapacityUpgrade_3.description>
+
+	<ResearchProject_RTStockpileCapacityUpgrade_4.label>квантовые запасники: емкость 4</ResearchProject_RTStockpileCapacityUpgrade_4.label>
+	<ResearchProject_RTStockpileCapacityUpgrade_4.description>Квантовые запасники теперь хранят еще 1 штабель или 2 обломка на клетку, всего 8 и 16 на клетку, соответственно.</ResearchProject_RTStockpileCapacityUpgrade_4.description>
+
+</LanguageData>

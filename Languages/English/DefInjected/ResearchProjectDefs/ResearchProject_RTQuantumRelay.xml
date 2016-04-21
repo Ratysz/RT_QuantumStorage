@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+	<ResearchProject_RTQuantumRelay.label>quantum relays</ResearchProject_RTQuantumRelay.label>
+	<ResearchProject_RTQuantumRelay.description>Allows construction of quantum relays: stand-alone devices that can connect to any quantum warehouse anywhere in the colony to transfer items and chunks back and forth.
+
+When powered, relays scan adjacent stockpile zone (and storage building) spaces and send items in them to the connected warehouse, provided that warehouse's zone accepts them and has higher or equal priority (compared to the scanned space).
+
+At the same time, connected warehouse will try to push items onto the relay, as defined by relay's own filter, if relay's priority is higher or equal to that of the warehouse's zone.</ResearchProject_RTQuantumRelay.description>
+
+</LanguageData>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+	<ResearchProject_RTQuantumChunkStorage.label>quantum chunk storage</ResearchProject_RTQuantumChunkStorage.label>
+	<ResearchProject_RTQuantumChunkStorage.description>Allows quantum stockpiles to store rock chunks and metal slag.
+
+Every quantum storage device now has a mode toggle, to allow freely switching between storing items and storing chunks, although it does require manual input from a colonist to finalize the swtich.
+
+Since chunks are considerably simpler than any other item that needs storage, and it's not as important to preserve all the miniscule details of their structure, they can be superposed much more efficiently. 
+
+Unfortunately, this also means that only one chunk per space remains fully accessible at all times. The rest of them enter so-called 'deep-store' state, and will be ejected out of it if there's a free space on the stockpile.
+
+Despite this, the superposition is still stable, and does not require power to simply maintain. However, switching a stockpile full of chunks back to item mode can get messy.</ResearchProject_RTQuantumChunkStorage.description>
+
+</LanguageData>

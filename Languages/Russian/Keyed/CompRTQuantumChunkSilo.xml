@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+	<CompRTQuantumChunkSilo_QWConnect>Подключено к складу.</CompRTQuantumChunkSilo_QWConnect>
+	<CompRTQuantumChunkSilo_ChunksContained>Консерв. (металл/камень/всего/макс):</CompRTQuantumChunkSilo_ChunksContained>
+	<CompRTQuantumChunkSilo_SparklesToggle>Индикация активности запасника</CompRTQuantumChunkSilo_SparklesToggle>
+	<CompRTQuantumChunkSilo_SparklesAreOn>Включена</CompRTQuantumChunkSilo_SparklesAreOn>
+	<CompRTQuantumChunkSilo_SparklesAreOff>Выключена</CompRTQuantumChunkSilo_SparklesAreOff>
+
+</LanguageData>

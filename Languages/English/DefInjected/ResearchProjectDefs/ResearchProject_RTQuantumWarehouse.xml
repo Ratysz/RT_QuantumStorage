@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+	<ResearchProject_RTQuantumWarehouse.label>quantum warehouses</ResearchProject_RTQuantumWarehouse.label>
+	<ResearchProject_RTQuantumWarehouse.description>Allows construction of quantum warehouses: devices that are placed underneath stockpile zones to network all of the zone's quantum storage devices, on top of acting like quantum stockpiles themselves.
+
+When powered, a zone's warehouse makes sure that all stockpiles (itself included) are evenly filled and tries to minimize the amount of incomplete item stacks. If chunk storage is researched, any chunks in the zone will be sent to stockpiles in chunk-storing mode, providing the zone accepts those chunks at all and there's space.</ResearchProject_RTQuantumWarehouse.description>
+
+</LanguageData>

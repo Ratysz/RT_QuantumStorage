@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResearchProjectDefs>
+
+	<ResearchProjectDef>
+		<defName>ResearchProject_RTStockpileCapacityUpgrade_1</defName>
+		<label>quantum stockpile capacity 1</label>
+		<description>Quantum stockpiles now store 1 more item stack or 2 more chunks per space, for a total of 5 and 10 per space, respectively.</description>
+		<totalCost>2000</totalCost>
+		<prerequisites>
+			<li>MicroelectronicsBasics</li>
+			<li>ResearchProject_RTQuantumStockpile</li>
+		</prerequisites>
+		<requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+		<requiredResearchFacilities>
+			<li>MultiAnalyzer</li>
+		</requiredResearchFacilities>
+		<researchMods>
+			<li>
+				<specialAction>RT_QuantumStorage.ResearchModsSpecial.ResetCapacity</specialAction>
+			</li>
+			<li>
+				<specialAction>RT_QuantumStorage.ResearchModsSpecial.IncreaseCapacity</specialAction>
+			</li>
+		</researchMods>
+	</ResearchProjectDef>
+
+	<ResearchProjectDef>
+		<defName>ResearchProject_RTStockpileCapacityUpgrade_2</defName>
+		<label>quantum stockpile capacity 2</label>
+		<description>Quantum stockpiles now store 1 more item stack or 2 more chunks per space, for a total of 6 and 12 per space, respectively.</description>
+		<totalCost>2000</totalCost>
+		<prerequisites>
+			<li>MicroelectronicsBasics</li>
+			<li>ResearchProject_RTStockpileCapacityUpgrade_1</li>
+		</prerequisites>
+		<requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+		<requiredResearchFacilities>
+			<li>MultiAnalyzer</li>
+		</requiredResearchFacilities>
+		<researchMods>
+			<li>
+				<specialAction>RT_QuantumStorage.ResearchModsSpecial.IncreaseCapacity</specialAction>
+			</li>
+		</researchMods>
+	</ResearchProjectDef>
+
+	<ResearchProjectDef>
+		<defName>ResearchProject_RTStockpileCapacityUpgrade_3</defName>
+		<label>quantum stockpile capacity 3</label>
+		<description>Quantum stockpiles now store 1 more item stack or 2 more chunks per space, for a total of 7 and 14 per space, respectively.</description>
+		<totalCost>2000</totalCost>
+		<prerequisites>
+			<li>MicroelectronicsBasics</li>
+			<li>ResearchProject_RTStockpileCapacityUpgrade_2</li>
+		</prerequisites>
+		<requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+		<requiredResearchFacilities>
+			<li>MultiAnalyzer</li>
+		</requiredResearchFacilities>
+		<researchMods>
+			<li>
+				<specialAction>RT_QuantumStorage.ResearchModsSpecial.IncreaseCapacity</specialAction>
+			</li>
+		</researchMods>
+	</ResearchProjectDef>
+
+	<ResearchProjectDef>
+		<defName>ResearchProject_RTStockpileCapacityUpgrade_4</defName>
+		<label>quantum stockpile capacity 4</label>
+		<description>Quantum stockpiles now store 1 more item stack or 2 more chunks per space, for a total of 8 and 16 per space, respectively.</description>
+		<totalCost>2000</totalCost>
+		<prerequisites>
+			<li>MicroelectronicsBasics</li>
+			<li>ResearchProject_RTStockpileCapacityUpgrade_3</li>
+		</prerequisites>
+		<requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+		<requiredResearchFacilities>
+			<li>MultiAnalyzer</li>
+		</requiredResearchFacilities>
+		<researchMods>
+			<li>
+				<specialAction>RT_QuantumStorage.ResearchModsSpecial.IncreaseCapacity</specialAction>
+			</li>
+		</researchMods>
+	</ResearchProjectDef>
+
+</ResearchProjectDefs>

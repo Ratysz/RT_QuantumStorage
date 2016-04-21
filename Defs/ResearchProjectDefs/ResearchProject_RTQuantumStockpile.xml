@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResearchProjectDefs>
+
+	<ResearchProjectDef>
+		<defName>ResearchProject_RTQuantumStockpile</defName>
+		<label>quantum stockpiles</label>
+		<description>Allows construction of quantum stockpiles: devices that are placed underneath stockpile zones in order to store more than one item or stack of items in a given space.
+	
+When powered, these stockpiles scan zone spaces adjacent to them and, if the zone's filter allows it, pull any items onto themselves, up to 4 items per space.
+
+Items are steadily superposed, so each one remains fully accessible, and nothing catastrophic will happen even if the power supply fails.</description>
+		<totalCost>2000</totalCost>
+		<prerequisites>
+			<li>MicroelectronicsBasics</li>
+		</prerequisites>
+		<requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+		<requiredResearchFacilities>
+			<li>MultiAnalyzer</li>
+		</requiredResearchFacilities>
+	</ResearchProjectDef>
+
+</ResearchProjectDefs>

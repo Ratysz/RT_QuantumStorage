@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Buildings>
+
+	<ThingDef>
+		<defName>Building_RTQuantumRelaySmall</defName>
+		<label>small quantum relay</label>
+		<description>Connects to any quantum warehouse anywhere in the colony to transfer items and chunks back and forth.</description>
+		<designationCategory>Furniture</designationCategory>
+
+		<category>Building</category>
+		<thingClass>Building_Storage</thingClass>
+		<tickerType>Normal</tickerType>
+		<minifiedDef>MinifiedFurniture</minifiedDef>
+
+		<graphicData>
+			<texPath>RT_Buildings/Building_RTQuantumRelaySmall</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<drawerType>MapMeshAndRealTime</drawerType>
+		<repairEffect>Repair</repairEffect>
+		<constructEffect>ConstructMetal</constructEffect>
+		<soundImpactDefault>BulletImpactMetal</soundImpactDefault>
+		<filthLeaving>BuildingRubble</filthLeaving>
+		<pathCost>40</pathCost>
+
+		<fillPercent>0.2</fillPercent>
+		<researchPrerequisites>
+			<li>ResearchProject_RTQuantumRelay</li>
+		</researchPrerequisites>
+		<leaveResourcesWhenKilled>True</leaveResourcesWhenKilled>
+		<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+		<altitudeLayer>FloorEmplacement</altitudeLayer>
+		<passability>PassThroughOnly</passability>
+		<building>
+			<isEdifice>True</isEdifice>
+		</building>
+		<selectable>True</selectable>
+		<rotatable>False</rotatable>
+		<statBases>
+			<MaxHitPoints>100</MaxHitPoints>
+			<WorkToMake>1000</WorkToMake>
+			<Flammability>1.0</Flammability>
+			<Beauty>0</Beauty>
+		</statBases>
+		<costList>
+			<Steel>30</Steel>
+			<Components>2</Components>
+			<Plasteel>5</Plasteel>
+		</costList>
+
+		<comps>
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerTrader</compClass>
+				<basePowerConsumption>100</basePowerConsumption>
+				<shortCircuitInRain>True</shortCircuitInRain>
+				<startElectricalFires>True</startElectricalFires>
+				<soundPowerOn>PowerOnSmall</soundPowerOn>
+				<soundPowerOff>PowerOffSmall</soundPowerOff>
+			</li>
+			<li Class="CompProperties_Flickable" />
+			<li Class="RT_QuantumStorage.CompProperties_RTQuantumRelay"/>
+			<li Class="CompProperties_Breakdownable"/>
+		</comps>
+		<inspectorTabs>
+			<li>ITab_Storage</li>
+		</inspectorTabs>
+	</ThingDef>
+
+</Buildings>
