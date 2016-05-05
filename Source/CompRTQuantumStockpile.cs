@@ -184,6 +184,7 @@ namespace RT_QuantumStorage
 		{
 			if (thingToReceive != null && !thingToReceive.IsChunk())
 			{
+				if (compWarehouse != null) compWarehouse.buffer.RemoveAll(x => x == thingToReceive);
 				foreach (IntVec3 cellReceiving in parent.OccupiedRect().Cells)
 				{
 					if (cellReceiving.AllowedToAccept(thingToReceive)
@@ -193,9 +194,14 @@ namespace RT_QuantumStorage
 						List<Thing> thingsReceiving = cellReceiving.GetItemList();
 						if (thingsReceiving.Count < maxStacks)
 						{
-							thingToReceive.Position = cellReceiving;
-							cellReceiving.DropSound(thingToReceive.def);
 							thingToReceiveCell.ThrowDustPuff();
+							Thing thing = GenSpawn.Spawn(thingToReceive.SplitOff(thingToReceive.stackCount), cellReceiving);
+							cellReceiving.DropSound(thing.def);
+							SlotGroup slotGroup = cellReceiving.GetSlotGroup();
+							if (slotGroup != null && slotGroup.parent != null)
+							{
+								slotGroup.parent.Notify_ReceivedThing(thing);
+							}
 							return true;
 						}
 						else

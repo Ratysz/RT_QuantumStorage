@@ -96,8 +96,14 @@ namespace RT_QuantumStorage
 				CompRTQuantumChunkSilo compChunkSilo = parent.TryGetComp<CompRTQuantumChunkSilo>();
 				if (compChunkSilo != null)
 				{
-					compChunkSilo.PostDeSpawn();
-					parent.AllComps.Remove(compChunkSilo);
+					foreach (ThingComp comp in parent.AllComps)
+					{
+						if (comp is CompRTQuantumChunkSilo)
+						{
+							comp.PostDeSpawn();
+						}
+					}
+					parent.AllComps.RemoveAll(x => x is CompRTQuantumChunkSilo);
 					parent.def.comps.RemoveAll(x => x.compClass.ToString().Equals("RT_QuantumStorage.CompRTQuantumChunkSilo"));
 				}
 				if (parent.TryGetComp<CompRTQuantumStockpile>() == null)
@@ -127,8 +133,14 @@ namespace RT_QuantumStorage
 				CompRTQuantumStockpile compStockpile = parent.TryGetComp<CompRTQuantumStockpile>();
 				if (compStockpile != null)
 				{
-					compStockpile.PostDeSpawn();
-					parent.AllComps.Remove(compStockpile);
+					foreach (ThingComp comp in parent.AllComps)
+					{
+						if (comp is CompRTQuantumStockpile)
+						{
+							comp.PostDeSpawn();
+						}
+					}
+					parent.AllComps.RemoveAll(x => x is CompRTQuantumStockpile);
 					parent.def.comps.RemoveAll(x => x.compClass.ToString().Equals("RT_QuantumStorage.CompRTQuantumStockpile"));
 				}
 				if (parent.TryGetComp<CompRTQuantumChunkSilo>() == null)

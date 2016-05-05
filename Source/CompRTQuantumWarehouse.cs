@@ -315,16 +315,26 @@ namespace RT_QuantumStorage
 					if (sourceThing != null && targetThings.Count < sourceThings.Count - 1
 						&& targetCell.AllowedToAccept(sourceThing))
 					{
-						ForbidUtility.SetForbidden(sourceThing, false, false);
-						sourceThing.Position = targetCell;
-						targetCell.DropSound(sourceThing.def);
+						sourceCell.ThrowDustPuff();
+						Thing thing = GenSpawn.Spawn(sourceThing.SplitOff(sourceThing.stackCount), targetCell);
+						targetCell.DropSound(thing.def);
+						SlotGroup slotGroup = targetCell.GetSlotGroup();
+						if (slotGroup != null && slotGroup.parent != null)
+						{
+							slotGroup.parent.Notify_ReceivedThing(thing);
+						}
 					}
 					else if (targetThing != null && sourceThings.Count < targetThings.Count - 1
 						&& sourceCell.AllowedToAccept(targetThing))
 					{
-						ForbidUtility.SetForbidden(targetThing, false, false);
-						targetThing.Position = sourceCell;
-						sourceCell.DropSound(targetThing.def);
+						targetCell.ThrowDustPuff();
+						Thing thing = GenSpawn.Spawn(targetThing.SplitOff(targetThing.stackCount), sourceCell);
+						sourceCell.DropSound(thing.def);
+						SlotGroup slotGroup = sourceCell.GetSlotGroup();
+						if (slotGroup != null && slotGroup.parent != null)
+						{
+							slotGroup.parent.Notify_ReceivedThing(thing);
+						}
 					}
 				}
 			}

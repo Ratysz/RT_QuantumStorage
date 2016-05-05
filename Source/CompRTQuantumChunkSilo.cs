@@ -180,6 +180,7 @@ namespace RT_QuantumStorage
 				&& cellReceiving.AllowedToAccept(thingToReceive)
 				&& cellReceiving.Priority() >= thingToReceive.Position.Priority())
 			{
+				if (compWarehouse != null) compWarehouse.buffer.RemoveAll(x => x == thingToReceive);
 				ChunkRecord chunkRecord = chunkRecords.Find(x => x.chunkDef == thingToReceive.def);
 				if (chunkRecord != null)
 				{
