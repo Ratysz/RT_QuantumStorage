@@ -66,11 +66,6 @@ namespace RT_QuantumStorage
 			}
 		}
 
-		public override void CompTickRare()
-		{
-			QuantumRelayTick(250);
-		}
-
 		public override void CompTick()
 		{
 			QuantumRelayTick(5);

@@ -61,11 +61,6 @@ namespace RT_QuantumStorage
 			if (parent == null || parent.Destroyed) EmptyOut();
 		}
 
-		public override void CompTickRare()
-		{
-			QuantumChunkSiloTick(250);
-		}
-
 		public override void CompTick()
 		{
 			QuantumChunkSiloTick(5);

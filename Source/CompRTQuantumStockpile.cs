@@ -58,11 +58,6 @@ namespace RT_QuantumStorage
 			if (compWarehouse != null) compWarehouse.DeRegisterStockpile(this);
 		}
 
-		public override void CompTickRare()
-		{
-			QuantumStockpileTick(250);
-		}
-
 		public override void CompTick()
 		{
 			QuantumStockpileTick(5);

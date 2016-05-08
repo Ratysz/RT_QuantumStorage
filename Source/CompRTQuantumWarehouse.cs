@@ -21,9 +21,9 @@ namespace RT_QuantumStorage
 
 		private CompPowerTrader compPowerTrader;
 		private bool valid;
-		private List<CompRTQuantumStockpile> compStockpiles = new List<CompRTQuantumStockpile>();
-		private List<CompRTQuantumChunkSilo> compChunkSilos = new List<CompRTQuantumChunkSilo>();
-		private List<CompRTQuantumRelay> compRelays = new List<CompRTQuantumRelay>();
+		private List<CompRTQuantumStockpile> compStockpiles;
+		private List<CompRTQuantumChunkSilo> compChunkSilos;
+		private List<CompRTQuantumRelay> compRelays;
 		private int qsTargetIndex = 0;
 		private int qsSourceIndex = 1;
 		private int qcsTargetIndex = 0;
@@ -49,12 +49,11 @@ namespace RT_QuantumStorage
 			lastTickStagger++;
 			tickStagger = lastTickStagger;
 
-			valid = false;
-		}
+			compStockpiles = new List<CompRTQuantumStockpile>();
+			compChunkSilos = new List<CompRTQuantumChunkSilo>();
+			compRelays = new List<CompRTQuantumRelay>();
 
-		public override void CompTickRare()
-		{
-			QuantumWarehouseTick(250);
+			valid = false;
 		}
 
 		public override void CompTick()
