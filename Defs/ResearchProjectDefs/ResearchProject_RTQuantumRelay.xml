@@ -9,7 +9,8 @@
 When powered, relays scan adjacent stockpile zone (and storage building) spaces and send items in them to the connected warehouse, provided that warehouse's zone accepts them and has higher or equal priority (compared to the scanned space).
 
 At the same time, connected warehouse will try to push items onto the relay, as defined by relay's own filter, if relay's priority is higher or equal to that of the warehouse's zone.</description>
-		<totalCost>2000</totalCost>
+		<baseCost>2000</baseCost>
+		<techLevel>Spacer</techLevel>
 		<prerequisites>
 			<li>MicroelectronicsBasics</li>
 			<li>ResearchProject_RTQuantumWarehouse</li>

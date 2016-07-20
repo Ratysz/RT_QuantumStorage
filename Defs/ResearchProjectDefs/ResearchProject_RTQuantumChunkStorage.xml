@@ -13,7 +13,8 @@ Since chunks are considerably simpler than any other item that needs storage, an
 Unfortunately, this also means that only one chunk per space remains fully accessible at all times. The rest of them enter so-called 'deep-store' state, and will be ejected out of it if there's a free space on the stockpile.
 
 Despite this, the superposition is still stable, and does not require power to simply maintain. However, switching a stockpile full of chunks back to item mode can get messy.</description>
-		<totalCost>500</totalCost>
+		<baseCost>500</baseCost>
+		<techLevel>Spacer</techLevel>
 		<prerequisites>
 			<li>MicroelectronicsBasics</li>
 			<li>ResearchProject_RTQuantumStockpile</li>

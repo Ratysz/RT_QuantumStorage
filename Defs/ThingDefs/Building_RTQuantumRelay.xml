@@ -46,7 +46,7 @@
 		</statBases>
 		<costList>
 			<Steel>100</Steel>
-			<Components>4</Components>
+			<Component>4</Component>
 			<Plasteel>5</Plasteel>
 		</costList>
 

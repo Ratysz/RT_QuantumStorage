@@ -28,15 +28,9 @@ namespace RT_QuantumStorage
 
 		private bool switchedToChunkSilo = false;
 
-		private Texture2D chunkSiloTexture;
-		private Texture2D stockpileTexture;
-
 		public override void PostSpawnSetup()
 		{
 			base.PostSpawnSetup();
-
-			chunkSiloTexture = ContentFinder<Texture2D>.Get("RT_UI/RockLowA", true);
-			stockpileTexture = ContentFinder<Texture2D>.Get("RT_UI/MetalA", true);
 
 			SortOutComps();
 		}
@@ -51,13 +45,13 @@ namespace RT_QuantumStorage
 				{
 					commandModeSwitch.defaultLabel = "CompRTDeviceModeSwitcher_StockpileModeLabel".Translate();
 					commandModeSwitch.defaultDesc = "CompRTDeviceModeSwitcher_StockpileModeDesc".Translate();
-					commandModeSwitch.icon = stockpileTexture;
+					commandModeSwitch.icon = Resources.stockpileTexture;
 				}
 				else
 				{
 					commandModeSwitch.defaultLabel = "CompRTDeviceModeSwitcher_ChunkSiloModeLabel".Translate();
 					commandModeSwitch.defaultDesc = "CompRTDeviceModeSwitcher_ChunkSiloModeDesc".Translate();
-					commandModeSwitch.icon = chunkSiloTexture;
+					commandModeSwitch.icon = Resources.chunkSiloTexture;
 				}
 				commandModeSwitch.action = () =>
 				{

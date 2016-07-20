@@ -29,17 +29,10 @@ namespace RT_QuantumStorage
 		private static int lastTickStagger;
 
 		private bool sparklesEnabled = false;
-		private Texture2D sparklesButtonTexture;
-		private Texture2D leftArrowTexture;
-		private Texture2D rightArrowTexture;
 		
 		public override void PostSpawnSetup()
 		{
 			compPowerTrader = parent.TryGetComp<CompPowerTrader>();
-
-			sparklesButtonTexture = ContentFinder<Texture2D>.Get("RT_UI/Sparkles", true);
-			leftArrowTexture = ContentFinder<Texture2D>.Get("RT_UI/Left", true);
-			rightArrowTexture = ContentFinder<Texture2D>.Get("RT_UI/Right", true);
 
 			lastTickStagger++;
 			tickStagger = lastTickStagger;
@@ -101,7 +94,7 @@ namespace RT_QuantumStorage
 			commandSparkles.isActive = () => sparklesEnabled;
 			commandSparkles.toggleAction = () => sparklesEnabled = !sparklesEnabled;
 			commandSparkles.groupKey = 95918723;
-			commandSparkles.icon = sparklesButtonTexture;
+			commandSparkles.icon = Resources.sparklesButtonTexture;
 			commandSparkles.defaultLabel = "CompRTQuantumRelay_SparklesToggle".Translate();
 			if (sparklesEnabled)
 			{
@@ -114,7 +107,7 @@ namespace RT_QuantumStorage
 			yield return commandSparkles;
 
 			Command_Action commandWarehousePrev = new Command_Action();
-			commandWarehousePrev.icon = leftArrowTexture;
+			commandWarehousePrev.icon = Resources.leftArrowTexture;
 			commandWarehousePrev.groupKey = 56182375;
 			commandWarehousePrev.defaultLabel = "CompRTQuantumRelay_WarehousePrevLabel".Translate();
 			commandWarehousePrev.defaultDesc = "CompRTQuantumRelay_WarehousePrevDesc".Translate();
@@ -168,7 +161,7 @@ namespace RT_QuantumStorage
 			yield return commandWarehousePrev;
 
 			Command_Action commandWarehouseNext = new Command_Action();
-			commandWarehouseNext.icon = rightArrowTexture;
+			commandWarehouseNext.icon = Resources.rightArrowTexture;
 			commandWarehouseNext.groupKey = 91915621;
 			commandWarehouseNext.defaultLabel = "CompRTQuantumRelay_WarehouseNextLabel".Translate();
 			commandWarehouseNext.defaultDesc = "CompRTQuantumRelay_WarehouseNextDesc".Translate();

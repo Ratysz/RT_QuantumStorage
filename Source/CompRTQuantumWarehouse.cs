@@ -37,14 +37,11 @@ namespace RT_QuantumStorage
 		private static int lastTickStagger;
 
 		private bool sparklesEnabled = false;
-		private Texture2D sparklesButtonTexture;
 
 		public override void PostSpawnSetup()
 		{
 			base.PostSpawnSetup();
 			compPowerTrader = parent.TryGetComp<CompPowerTrader>();
-
-			sparklesButtonTexture = ContentFinder<Texture2D>.Get("RT_UI/Sparkles", true);
 
 			lastTickStagger++;
 			tickStagger = lastTickStagger;
@@ -95,7 +92,7 @@ namespace RT_QuantumStorage
 			commandSparkles.isActive = () => sparklesEnabled;
 			commandSparkles.toggleAction = () => sparklesEnabled = !sparklesEnabled;
 			commandSparkles.groupKey = 296571;
-			commandSparkles.icon = sparklesButtonTexture;
+			commandSparkles.icon = Resources.sparklesButtonTexture;
 			commandSparkles.defaultLabel = "CompRTQuantumWarehouse_SparklesToggle".Translate();
 			if (sparklesEnabled)
 			{
