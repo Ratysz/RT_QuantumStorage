@@ -123,12 +123,12 @@ namespace RT_QuantumStorage
 
 		public static void ThrowSparkle(this IntVec3 cell)
 		{
-			MoteThrower.ThrowLightningGlow(cell.ToVector3() + new Vector3(0.5f, 0.0f, 0.5f), 0.05f);
+			MoteMaker.ThrowLightningGlow(cell.ToVector3() + new Vector3(0.5f, 0.0f, 0.5f), 0.05f);
 		}
 
 		public static void ThrowDustPuff(this IntVec3 cell)
 		{
-			MoteThrower.ThrowDustPuff(cell.ToVector3() + new Vector3(0.5f, 0.0f, 0.5f), 0.5f);
+			MoteMaker.ThrowDustPuff(cell.ToVector3() + new Vector3(0.5f, 0.0f, 0.5f), 0.5f);
 		}
 
 		public static void DropSound(this IntVec3 cell, ThingDef thingDef)

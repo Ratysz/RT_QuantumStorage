@@ -106,7 +106,7 @@ namespace RT_QuantumStorage
 			if ((Find.TickManager.TicksGame + tickStagger) % tickAmount == 0)
 			{
 				if ((compPowerTrader == null || compPowerTrader.PowerOn)
-					&& parent.OccupiedRect().Center.Priority() != StoragePriority.Unstored)
+					&& parent.OccupiedRect().CenterCell.Priority() != StoragePriority.Unstored)
 				{
 					if (compWarehouse == null)
 					{

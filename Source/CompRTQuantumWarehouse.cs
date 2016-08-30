@@ -116,7 +116,7 @@ namespace RT_QuantumStorage
 			{
 				if (compPowerTrader == null || compPowerTrader.PowerOn)
 				{
-					if (parent.OccupiedRect().Center.Priority() == StoragePriority.Unstored)
+					if (parent.OccupiedRect().CenterCell.Priority() == StoragePriority.Unstored)
 					{
 						valid = false;
 					}
@@ -212,7 +212,7 @@ namespace RT_QuantumStorage
 					{
 						CompRTQuantumWarehouse compWarehouse = parent.FindWarehouse();
 						valid = (compWarehouse != null && compWarehouse == this
-							&& parent.OccupiedRect().Center.Priority() != StoragePriority.Unstored);
+							&& parent.OccupiedRect().CenterCell.Priority() != StoragePriority.Unstored);
 					}
 				}
 				else

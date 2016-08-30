@@ -70,7 +70,7 @@ namespace RT_QuantumStorage
 			{
 				if (compWarehouse.parent != parent)
 				{
-					Zone zone = compWarehouse.parent.OccupiedRect().Center.GetZone();
+					Zone zone = compWarehouse.parent.OccupiedRect().CenterCell.GetZone();
 					if (zone != null)
 					{
 						return "CompRTQuantumRelay_QWConnected".Translate() + " " + zone.label;
