@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <ResearchProject_RTQuantumChunkStorage.label>量子塊堆儲存</ResearchProject_RTQuantumChunkStorage.label>
+  <ResearchProject_RTQuantumChunkStorage.description>解鎖量子儲存器儲存石堆和鋼渣。
+
+為量子儲存器增加模式切換功能，允許自由地在物品儲存和塊堆儲存之間自由切換，但需要派一位殖民者前往手動撥動開關。
+
+由於塊堆的組成相對於其他任何需要儲存的物品更單一，微觀上保持其結構並不怎麼重要，所以可以更加高效地進行堆疊。
+
+可惜的是這意味著每格空間只有一個塊堆能被拿取，其他塊堆進入所謂的「深度儲存」狀態，只有當儲存器上的空間為空時，塊堆才會被彈出。
+
+即使如此，疊加仍然穩定，斷電後能維持原有的儲存狀態。但如果將一個存滿塊堆的儲存器切換回物品儲存模式會導致混亂。</ResearchProject_RTQuantumChunkStorage.description>
+
+
+</LanguageData>

@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <CompRTQuantumChunkSilo_QWConnect>已连接至量子仓库。</CompRTQuantumChunkSilo_QWConnect>
+  <CompRTQuantumChunkSilo_ChunksContained>深度储存（钢渣/石堆/总计/上限）：</CompRTQuantumChunkSilo_ChunksContained>
+  <CompRTQuantumChunkSilo_SparklesToggle>量子储存激活指示</CompRTQuantumChunkSilo_SparklesToggle>
+  <CompRTQuantumChunkSilo_SparklesAreOn>开启</CompRTQuantumChunkSilo_SparklesAreOn>
+  <CompRTQuantumChunkSilo_SparklesAreOff>关闭</CompRTQuantumChunkSilo_SparklesAreOff>
+
+</LanguageData>

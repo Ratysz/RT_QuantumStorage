@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <CompRTDeviceModeSwitcher_StockpileModeLabel>切换至物品储存模式</CompRTDeviceModeSwitcher_StockpileModeLabel>
+  <CompRTDeviceModeSwitcher_StockpileModeDesc>设备将储存食物、资源、装备……</CompRTDeviceModeSwitcher_StockpileModeDesc>
+  <CompRTDeviceModeSwitcher_ChunkSiloModeLabel>切换至块堆储存模式</CompRTDeviceModeSwitcher_ChunkSiloModeLabel>
+  <CompRTDeviceModeSwitcher_ChunkSiloModeDesc>设备将储存石堆和钢渣……</CompRTDeviceModeSwitcher_ChunkSiloModeDesc>
+
+</LanguageData>

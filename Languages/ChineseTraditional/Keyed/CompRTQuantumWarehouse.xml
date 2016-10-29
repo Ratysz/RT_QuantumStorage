@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <CompRTQuantumWarehouse_ConnectedQS>已連接量子儲存：</CompRTQuantumWarehouse_ConnectedQS>
+  <CompRTQuantumWarehouse_ConnectedQR>已連接量子中繼：</CompRTQuantumWarehouse_ConnectedQR>
+  <CompRTQuantumWarehouse_NotValid>量子倉庫已停用或無效。</CompRTQuantumWarehouse_NotValid>
+  <CompRTQuantumWarehouse_SparklesToggle>量子倉庫激活指示。</CompRTQuantumWarehouse_SparklesToggle>
+  <CompRTQuantumWarehouse_SparklesAreOn>開啟</CompRTQuantumWarehouse_SparklesAreOn>
+  <CompRTQuantumWarehouse_SparklesAreOff>關閉</CompRTQuantumWarehouse_SparklesAreOff>
+
+</LanguageData>

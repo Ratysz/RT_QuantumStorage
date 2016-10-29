@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <ResearchProject_RTQuantumStockpile.label>量子储存器</ResearchProject_RTQuantumStockpile.label>
+  <ResearchProject_RTQuantumStockpile.description>解锁建造「量子储存器」：将此设备放置于储存区中，从而可在一格空间内储存超过一个或一组的物品。
+
+接通电力后，储存器会扫描临近区域，当储存区的储存筛选允许某样物品，便会被拉取到储存器上，直至每格空间堆叠4组物品。
+
+物品叠加很稳定，即使切断电源，每个物品仍然可以被完全正常地拿取，也不会发生什么灾难性的后果。</ResearchProject_RTQuantumStockpile.description>
+
+
+</LanguageData>
