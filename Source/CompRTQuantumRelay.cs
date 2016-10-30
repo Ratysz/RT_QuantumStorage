@@ -300,7 +300,7 @@ namespace RT_QuantumStorage
 									thingToReceive.DeSpawn();
 								}
 							}
-							else
+							else if (0 < thingToReceive.stackCount)
 							{
 								thingToReceiveCell.ThrowDustPuff();
 								Thing thing = GenSpawn.Spawn(thingToReceive.SplitOff(thingToReceive.stackCount), cellReceiving);
