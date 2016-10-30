@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <CompRTQuantumStockpile_SelfDefrag>定期自整理。</CompRTQuantumStockpile_SelfDefrag>
+  <CompRTQuantumStockpile_QWConnect>已連接至量子倉庫。</CompRTQuantumStockpile_QWConnect>
+  <CompRTQuantumStockpile_MaxStacks>每格堆組上限：</CompRTQuantumStockpile_MaxStacks>
+  <CompRTQuantumStockpile_SparklesToggle>量子儲存激活指示</CompRTQuantumStockpile_SparklesToggle>
+  <CompRTQuantumStockpile_SparklesAreOn>開啟</CompRTQuantumStockpile_SparklesAreOn>
+  <CompRTQuantumStockpile_SparklesAreOff>關閉</CompRTQuantumStockpile_SparklesAreOff>
+
+</LanguageData>

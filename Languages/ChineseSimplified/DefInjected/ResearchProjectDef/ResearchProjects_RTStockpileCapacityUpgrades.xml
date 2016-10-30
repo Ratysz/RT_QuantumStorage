@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <ResearchProject_RTStockpileCapacityUpgrade_1.label>量子储存容量 1</ResearchProject_RTStockpileCapacityUpgrade_1.label>
+  <ResearchProject_RTStockpileCapacityUpgrade_1.description>量子储存每格上限增加1组物品、2块堆，即每格堆叠上限分别升级为5和10。</ResearchProject_RTStockpileCapacityUpgrade_1.description>
+
+  <ResearchProject_RTStockpileCapacityUpgrade_2.label>量子储存容量 2</ResearchProject_RTStockpileCapacityUpgrade_2.label>
+  <ResearchProject_RTStockpileCapacityUpgrade_2.description>量子储存每格上限增加1组物品、2块堆，即每格堆叠上限分别升级为6和12。</ResearchProject_RTStockpileCapacityUpgrade_2.description>
+
+  <ResearchProject_RTStockpileCapacityUpgrade_3.label>量子储存容量 3</ResearchProject_RTStockpileCapacityUpgrade_3.label>
+  <ResearchProject_RTStockpileCapacityUpgrade_3.description>量子储存每格上限增加1组物品、2块堆，即每格堆叠上限分别升级为7和14。</ResearchProject_RTStockpileCapacityUpgrade_3.description>
+
+  <ResearchProject_RTStockpileCapacityUpgrade_4.label>量子储存容量 4</ResearchProject_RTStockpileCapacityUpgrade_4.label>
+  <ResearchProject_RTStockpileCapacityUpgrade_4.description>量子储存每格上限增加1组物品、2块堆，即每格堆叠上限分别升级为8和16。</ResearchProject_RTStockpileCapacityUpgrade_4.description>
+
+
+</LanguageData>

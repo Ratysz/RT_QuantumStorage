@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <CompRTQuantumRelay_QWConnected>已连接量子仓库：</CompRTQuantumRelay_QWConnected>
+  <CompRTQuantumRelay_QWIsSelf>量子中继目标为自身！</CompRTQuantumRelay_QWIsSelf>
+  <CompRTQuantumRelay_QWIsNull>量子仓库未选择。</CompRTQuantumRelay_QWIsNull>
+  <CompRTQuantumRelay_SparklesToggle>量子中继激活指示</CompRTQuantumRelay_SparklesToggle>
+  <CompRTQuantumRelay_SparklesAreOn>关闭</CompRTQuantumRelay_SparklesAreOn>
+  <CompRTQuantumRelay_SparklesAreOff>开启</CompRTQuantumRelay_SparklesAreOff>
+  <CompRTQuantumRelay_WarehouseNextLabel>下一个量子仓库</CompRTQuantumRelay_WarehouseNextLabel>
+  <CompRTQuantumRelay_WarehouseNextDesc>选择下一个量子仓库。</CompRTQuantumRelay_WarehouseNextDesc>
+  <CompRTQuantumRelay_WarehousePrevLabel>上一个量子仓库</CompRTQuantumRelay_WarehousePrevLabel>
+  <CompRTQuantumRelay_WarehousePrevDesc>选择上一个量子仓库。</CompRTQuantumRelay_WarehousePrevDesc>
+
+</LanguageData>

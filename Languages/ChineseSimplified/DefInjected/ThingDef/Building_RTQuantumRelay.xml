@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <Building_RTQuantumRelay.label>量子中继器</Building_RTQuantumRelay.label>
+  <Building_RTQuantumRelay.description>可以不受距离限制地连接任意一个量子仓库，用以接收和发送物品和块堆。</Building_RTQuantumRelay.description>
+
+
+</LanguageData>

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <ResearchProject_RTQuantumRelay.label>量子中继器</ResearchProject_RTQuantumRelay.label>
+  <ResearchProject_RTQuantumRelay.description>解锁建造「量子中继器」：可以不受距离限制地连接任意一个量子仓库，用以接收和发送物品和块堆的独立式设备。
+
+通电后，中继器会扫描临近的储存区以及储存类建筑并将物品发送至连接的量子仓库，相对于被扫描的储存区，接收物品的仓库的储存区需要有相同或更高的优先级。
+
+同时，如果中继器的优先级与仓库的储存区的优先级相同或更高，连接的仓库会按照中继器的储存筛选尝试将物品发送给中继器，</ResearchProject_RTQuantumRelay.description>
+
+
+</LanguageData>

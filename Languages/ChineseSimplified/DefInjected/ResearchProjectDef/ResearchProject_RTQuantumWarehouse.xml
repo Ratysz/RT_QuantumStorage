@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <ResearchProject_RTQuantumWarehouse.label>量子仓库</ResearchProject_RTQuantumWarehouse.label>
+  <ResearchProject_RTQuantumWarehouse.description>解锁建造「量子仓库」：放置此设备于储存区中，将同一区内的所有量子储存器连接成网络；用法也类似量子储存器。
+
+通电后，一个储存区的量子仓库会确保所有储存器（包括它自己）都均匀地分配储存物品，并尝试整理物品，将数量不满的物品堆组数减至最少。如果已研究块堆储存，储存区内的所有块堆将会被发送至开启了块堆储存模式并且有足够空间的储存器中。</ResearchProject_RTQuantumWarehouse.description>
+
+
+</LanguageData>
