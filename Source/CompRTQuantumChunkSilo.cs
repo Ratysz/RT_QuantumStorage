@@ -52,7 +52,7 @@ namespace RT_QuantumStorage
 			}
 		}
 
-		public override void PostDeSpawn()
+		public override void PostDeSpawn(Map map)
 		{
 			if (compWarehouse != null) compWarehouse.DeRegisterChunkSilo(this);
 			if (parent == null || parent.Destroyed) EmptyOut();
@@ -76,7 +76,7 @@ namespace RT_QuantumStorage
 			return inspectStringExtra;
 		}
 
-		public override IEnumerable<Command> CompGetGizmosExtra()
+		public override IEnumerable<Gizmo> CompGetGizmosExtra()
 		{
 			Command_Toggle commandSparkles = new Command_Toggle();
 			commandSparkles.isActive = () => sparklesEnabled;
@@ -106,7 +106,7 @@ namespace RT_QuantumStorage
 			if ((Find.TickManager.TicksGame + tickStagger) % tickAmount == 0)
 			{
 				if ((compPowerTrader == null || compPowerTrader.PowerOn)
-					&& parent.OccupiedRect().CenterCell.Priority() != StoragePriority.Unstored)
+					&& parent.OccupiedRect().CenterCell.Priority(parent.Map) != StoragePriority.Unstored)
 				{
 					if (compWarehouse == null)
 					{
@@ -142,10 +142,10 @@ namespace RT_QuantumStorage
 
 		public void ProcessCell(IntVec3 cell)
 		{
-			if (sparklesEnabled) cell.ThrowSparkle();
-			if (cell.Priority() != StoragePriority.Unstored)
+			if (sparklesEnabled) cell.ThrowSparkle(parent.Map);
+			if (cell.Priority(parent.Map) != StoragePriority.Unstored)
 			{
-				List<Thing> cellThings = cell.GetItemList(true);
+				List<Thing> cellThings = cell.GetItemList(parent.Map, true);
 				for (int i = 0; i < cellThings.Count; i++)
 				{
 					Thing cellThing = cellThings[i];
@@ -169,8 +169,8 @@ namespace RT_QuantumStorage
 				&& !thingToReceive.Destroyed
 				&& thingToReceive.IsChunk()
 				&& ChunkTotalFast() < maxChunks
-				&& cellReceiving.AllowedToAccept(thingToReceive)
-				&& cellReceiving.Priority() >= thingToReceive.Position.Priority())
+				&& cellReceiving.AllowedToAccept(parent.Map, thingToReceive)
+				&& cellReceiving.Priority(parent.Map) >= thingToReceive.Position.Priority(parent.Map))
 			{
 				if (compWarehouse != null) compWarehouse.buffer.RemoveAll(x => x == thingToReceive);
 				ChunkRecord chunkRecord = chunkRecords.Find(x => x.chunkDef == thingToReceive.def);
@@ -185,8 +185,8 @@ namespace RT_QuantumStorage
 					chunkRecord.chunkDef = thingToReceive.def;
 					chunkRecords.Add(chunkRecord);
 				}
-				thingToReceive.Position.ThrowDustPuff();
-				thingToReceive.Position.DropSound(thingToReceive.def);
+				thingToReceive.Position.ThrowDustPuff(parent.Map);
+				thingToReceive.Position.DropSound(parent.Map, thingToReceive.def);
 				thingToReceive.DeSpawn();
 				return true;
 			}
@@ -261,14 +261,14 @@ namespace RT_QuantumStorage
 		{
 			foreach (IntVec3 cell in parent.OccupiedRect().Cells)
 			{
-				if (cell.GetItemList(true).Count == 0)
+				if (cell.GetItemList(parent.Map, true).Count == 0)
 				{
 					Thing thing = ProduceThing();
 					if (thing != null)
 					{
-						if (cell.AllowedToAccept(thing) && GenPlace.TryPlaceThing(thing, cell, ThingPlaceMode.Direct))
+						if (cell.AllowedToAccept(parent.Map, thing) && GenPlace.TryPlaceThing(thing, cell, parent.Map, ThingPlaceMode.Direct))
 						{
-							cell.DropSound(thing.def);
+							cell.DropSound(parent.Map, thing.def);
 						}
 						else
 						{
@@ -285,9 +285,9 @@ namespace RT_QuantumStorage
 			{
 				Thing thing = ProduceThing();
 				IntVec3 cell = parent.OccupiedRect().RandomCell;
-				if (GenPlace.TryPlaceThing(thing, cell, ThingPlaceMode.Near))
+				if (GenPlace.TryPlaceThing(thing, cell, parent.Map, ThingPlaceMode.Near))
 				{
-					cell.DropSound(thing.def);
+					cell.DropSound(parent.Map, thing.def);
 				}
 			}
 		}

@@ -50,7 +50,7 @@ namespace RT_QuantumStorage
 			}
 		}
 
-		public override void PostDeSpawn()
+		public override void PostDeSpawn(Map map)
 		{
 			if (compWarehouse != null)
 			{
@@ -70,7 +70,7 @@ namespace RT_QuantumStorage
 			{
 				if (compWarehouse.parent != parent)
 				{
-					Zone zone = compWarehouse.parent.OccupiedRect().CenterCell.GetZone();
+					Zone zone = compWarehouse.parent.OccupiedRect().CenterCell.GetZone(compWarehouse.parent.Map);
 					if (zone != null)
 					{
 						return "CompRTQuantumRelay_QWConnected".Translate() + " " + zone.label;
@@ -88,7 +88,7 @@ namespace RT_QuantumStorage
 			return null;
 		}
 
-		public override IEnumerable<Command> CompGetGizmosExtra()
+		public override IEnumerable<Gizmo> CompGetGizmosExtra()
 		{
 			Command_Toggle commandSparkles = new Command_Toggle();
 			commandSparkles.isActive = () => sparklesEnabled;
@@ -115,7 +115,7 @@ namespace RT_QuantumStorage
 			{
 				registered = false;
 				if (compWarehouse != null) compWarehouse.DeRegisterRelay(this);
-				List<Zone> zones = Find.ZoneManager.AllZones;
+				List<Zone> zones = parent.Map.zoneManager.AllZones;
 				if (zones != null && zones.Count != 0)
 				{
 					List<Zone_Stockpile> stockpileZones =
@@ -169,7 +169,7 @@ namespace RT_QuantumStorage
 			{
 				registered = false;
 				if (compWarehouse != null) compWarehouse.DeRegisterRelay(this);
-				List<Zone> zones = Find.ZoneManager.AllZones;
+				List<Zone> zones = parent.Map.zoneManager.AllZones;
 				if (zones != null && zones.Count != 0)
 				{
 					List<Zone_Stockpile> stockpileZones =
@@ -264,10 +264,10 @@ namespace RT_QuantumStorage
 
 		public void ProcessCell(IntVec3 cell)
 		{
-			if (sparklesEnabled) cell.ThrowSparkle();
-			if (cell.Priority() != StoragePriority.Unstored && compWarehouse != null)
+			if (sparklesEnabled) cell.ThrowSparkle(parent.Map);
+			if (cell.Priority(parent.Map) != StoragePriority.Unstored && compWarehouse != null)
 			{
-				List<Thing> cellThings = cell.GetItemList(true);
+				List<Thing> cellThings = cell.GetItemList(parent.Map, true);
 				for (int i = 0; i < cellThings.Count; i++)
 				{
 					Thing cellThing = cellThings[i];
@@ -283,29 +283,29 @@ namespace RT_QuantumStorage
 				if (compWarehouse != null) compWarehouse.buffer.RemoveAll(x => x == thingToReceive);
 				foreach (IntVec3 cellReceiving in parent.OccupiedRect().Cells)
 				{
-					if (cellReceiving.AllowedToAccept(thingToReceive)
-						&& cellReceiving.Priority() >= thingToReceive.Position.Priority())
+					if (cellReceiving.AllowedToAccept(parent.Map, thingToReceive)
+						&& cellReceiving.Priority(parent.Map) >= thingToReceive.Position.Priority(parent.Map))
 					{
 						IntVec3 thingToReceiveCell = thingToReceive.Position;
-						List<Thing> thingsReceiving = cellReceiving.GetItemList(true);
+						List<Thing> thingsReceiving = cellReceiving.GetItemList(parent.Map, true);
 						if (thingsReceiving.Count == 0)
 						{
 							if (thingToReceive.IsChunk())
 							{
 								Thing chunk = ThingMaker.MakeThing(thingToReceive.def);
-								if (GenPlace.TryPlaceThing(chunk, cellReceiving, ThingPlaceMode.Direct))
+								if (GenPlace.TryPlaceThing(chunk, cellReceiving, parent.Map, ThingPlaceMode.Direct))
 								{
-									cellReceiving.DropSound(chunk.def);
-									thingToReceive.Position.ThrowDustPuff();
+									cellReceiving.DropSound(parent.Map, chunk.def);
+									thingToReceive.Position.ThrowDustPuff(parent.Map);
 									thingToReceive.DeSpawn();
 								}
 							}
 							else if (0 < thingToReceive.stackCount)
 							{
-								thingToReceiveCell.ThrowDustPuff();
-								Thing thing = GenSpawn.Spawn(thingToReceive.SplitOff(thingToReceive.stackCount), cellReceiving);
-								cellReceiving.DropSound(thing.def);
-								SlotGroup slotGroup = cellReceiving.GetSlotGroup();
+								thingToReceiveCell.ThrowDustPuff(parent.Map);
+								Thing thing = GenSpawn.Spawn(thingToReceive.SplitOff(thingToReceive.stackCount), cellReceiving, parent.Map);
+								cellReceiving.DropSound(parent.Map, thing.def);
+								SlotGroup slotGroup = cellReceiving.GetSlotGroup(parent.Map);
 								if (slotGroup != null && slotGroup.parent != null)
 								{
 									slotGroup.parent.Notify_ReceivedThing(thing);
@@ -324,12 +324,12 @@ namespace RT_QuantumStorage
 										int thingReceivingStackCount = thingReceiving.stackCount;
 										if (thingReceiving.TryAbsorbStack(thingToReceive, true))
 										{
-											thingToReceiveCell.ThrowDustPuff();
+											thingToReceiveCell.ThrowDustPuff(parent.Map);
 										}
 										if (thingReceivingStackCount != thingReceiving.stackCount)
 										{
 											ForbidUtility.SetForbidden(thingReceiving, false, false);
-											cellReceiving.DropSound(thingReceiving.def);
+											cellReceiving.DropSound(parent.Map, thingReceiving.def);
 										}
 										return true;
 									}

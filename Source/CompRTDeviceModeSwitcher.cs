@@ -35,7 +35,7 @@ namespace RT_QuantumStorage
 			SortOutComps();
 		}
 
-		public override IEnumerable<Command> CompGetGizmosExtra()
+		public override IEnumerable<Gizmo> CompGetGizmosExtra()
 		{
 			if (canSwitchModes)
 			{
@@ -94,7 +94,7 @@ namespace RT_QuantumStorage
 					{
 						if (comp is CompRTQuantumChunkSilo)
 						{
-							comp.PostDeSpawn();
+							comp.PostDeSpawn(comp.parent.Map);
 						}
 					}
 					parent.AllComps.RemoveAll(x => x is CompRTQuantumChunkSilo);
@@ -131,7 +131,7 @@ namespace RT_QuantumStorage
 					{
 						if (comp is CompRTQuantumStockpile)
 						{
-							comp.PostDeSpawn();
+							comp.PostDeSpawn(comp.parent.Map);
 						}
 					}
 					parent.AllComps.RemoveAll(x => x is CompRTQuantumStockpile);

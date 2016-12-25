@@ -11,12 +11,12 @@ namespace RT_QuantumStorage
 {
 	public class PlaceWorker_RTRequireWalkable : PlaceWorker
 	{
-		public override AcceptanceReport AllowsPlacing(BuildableDef checkingDef, IntVec3 loc, Rot4 rot)
+		public override AcceptanceReport AllowsPlacing(BuildableDef checkingDef, IntVec3 loc, Rot4 rot, Thing thingToIgnore = null)
 		{
 			IEnumerable<IntVec3> cells = GenAdj.CellsOccupiedBy(loc, rot, checkingDef.Size);
 			foreach (IntVec3 cell in cells)
 			{
-				if (!cell.Walkable())
+				if (!cell.Walkable(Map))
 				{
 					return "PlaceWorker_RTRequireWalkable".Translate();
 				}

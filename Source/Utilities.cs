@@ -30,7 +30,7 @@ namespace RT_QuantumStorage
 				Zone_Stockpile zoneStockpile = null;
 				foreach (IntVec3 cell in thing.OccupiedRect().Cells)
 				{
-					Zone zone = cell.GetZone();
+					Zone zone = cell.GetZone(thing.Map);
 					if (zone != null && zone.GetType().ToString().Equals("RimWorld.Zone_Stockpile"))
 					{
 						zoneStockpile = zone as Zone_Stockpile;
@@ -62,10 +62,10 @@ namespace RT_QuantumStorage
 			return null;
 		}
 
-		public static List<Thing> GetItemList(this IntVec3 cell, bool includeChunks = false)
+		public static List<Thing> GetItemList(this IntVec3 cell, Map map, bool includeChunks = false)
 		{
 			List<Thing> list = new List<Thing>();
-			foreach (Thing thing in cell.GetThingList())
+			foreach (Thing thing in cell.GetThingList(map))
 			{
 				if (thing.def.category == ThingCategory.Item)
 				{
@@ -87,13 +87,13 @@ namespace RT_QuantumStorage
 				|| thing.def.thingCategories.Contains(DefDatabase<ThingCategoryDef>.GetNamed("Chunks"))));
 		}
 
-		public static bool AllowedToAccept(this IntVec3 cell, Thing thing)
+		public static bool AllowedToAccept(this IntVec3 cell, Map map, Thing thing)
 		{
-			if (cell.GetZone() != null && cell.GetZone().GetType().ToString().Equals("RimWorld.Zone_Stockpile"))
+			if (cell.GetZone(map) != null && cell.GetZone(map).GetType().ToString().Equals("RimWorld.Zone_Stockpile"))
 			{
-				return ((Zone_Stockpile)cell.GetZone()).GetStoreSettings().AllowedToAccept(thing);
+				return ((Zone_Stockpile)cell.GetZone(map)).GetStoreSettings().AllowedToAccept(thing);
 			}
-			Building_Storage buildingStorage = (Building_Storage)cell.GetThingList().Find(x => x.GetType().ToString().Equals("RimWorld.Building_Storage"));
+			Building_Storage buildingStorage = (Building_Storage)cell.GetThingList(map).Find(x => x.GetType().ToString().Equals("RimWorld.Building_Storage"));
 			if (buildingStorage != null)
 			{
 				return buildingStorage.GetStoreSettings().AllowedToAccept(thing);
@@ -101,19 +101,19 @@ namespace RT_QuantumStorage
 			return false;
 		}
 
-		public static bool AllowedToAccept(this IntVec3 cell, ThingDef thingDef)
+		public static bool AllowedToAccept(this IntVec3 cell, Map map, ThingDef thingDef)
 		{
 			Thing thing = ThingMaker.MakeThing(thingDef);
-			return cell.AllowedToAccept(thing);
+			return cell.AllowedToAccept(map, thing);
 		}
 
-		public static StoragePriority Priority(this IntVec3 cell)
+		public static StoragePriority Priority(this IntVec3 cell, Map map)
 		{
-			if (cell.GetZone() != null && cell.GetZone().GetType().ToString().Equals("RimWorld.Zone_Stockpile"))
+			if (cell.GetZone(map) != null && cell.GetZone(map).GetType().ToString().Equals("RimWorld.Zone_Stockpile"))
 			{
-				return ((Zone_Stockpile)cell.GetZone()).GetStoreSettings().Priority;
+				return ((Zone_Stockpile)cell.GetZone(map)).GetStoreSettings().Priority;
 			}
-			Building_Storage buildingStorage = (Building_Storage)cell.GetThingList().Find(x => x.GetType().ToString().Equals("RimWorld.Building_Storage"));
+			Building_Storage buildingStorage = (Building_Storage)cell.GetThingList(map).Find(x => x.GetType().ToString().Equals("RimWorld.Building_Storage"));
 			if (buildingStorage != null)
 			{
 				return buildingStorage.GetStoreSettings().Priority;
@@ -121,21 +121,21 @@ namespace RT_QuantumStorage
 			return StoragePriority.Unstored;
 		}
 
-		public static void ThrowSparkle(this IntVec3 cell)
+		public static void ThrowSparkle(this IntVec3 cell, Map map)
 		{
-			MoteMaker.ThrowLightningGlow(cell.ToVector3() + new Vector3(0.5f, 0.0f, 0.5f), 0.05f);
+			MoteMaker.ThrowLightningGlow(cell.ToVector3() + new Vector3(0.5f, 0.0f, 0.5f), map, 0.05f);
 		}
 
-		public static void ThrowDustPuff(this IntVec3 cell)
+		public static void ThrowDustPuff(this IntVec3 cell, Map map)
 		{
-			MoteMaker.ThrowDustPuff(cell.ToVector3() + new Vector3(0.5f, 0.0f, 0.5f), 0.5f);
+			MoteMaker.ThrowDustPuff(cell.ToVector3() + new Vector3(0.5f, 0.0f, 0.5f), map, 0.5f);
 		}
 
-		public static void DropSound(this IntVec3 cell, ThingDef thingDef)
+		public static void DropSound(this IntVec3 cell, Map map, ThingDef thingDef)
 		{
 			if (thingDef.soundDrop != null)
 			{
-				thingDef.soundDrop.PlayOneShot(cell);
+				thingDef.soundDrop.PlayOneShot(SoundInfo.InMap(new TargetInfo(cell, map)));
 			}
 		}
 

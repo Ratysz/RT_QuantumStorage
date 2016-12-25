@@ -11,12 +11,12 @@ namespace RT_QuantumStorage
 {
 	public class PlaceWorker_RTNoQSOverlap : PlaceWorker
 	{
-		public override AcceptanceReport AllowsPlacing(BuildableDef checkingDef, IntVec3 loc, Rot4 rot)
+		public override AcceptanceReport AllowsPlacing(BuildableDef checkingDef, IntVec3 loc, Rot4 rot, Thing thingToIgnore = null)
 		{
 			IEnumerable<IntVec3> cells = GenAdj.CellsAdjacent8Way(loc, rot, checkingDef.Size).Union<IntVec3>(GenAdj.CellsOccupiedBy(loc, rot, checkingDef.Size));
 			foreach (IntVec3 cell in cells)
 			{
-				List<Thing> things = Find.ThingGrid.ThingsListAt(cell);
+				List<Thing> things = Map.thingGrid.ThingsListAt(cell);
 				foreach (Thing thing in things)
 				{
 					if (thing.TryGetComp<CompRTQuantumStockpile>() != null

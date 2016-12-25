@@ -86,7 +86,7 @@ namespace RT_QuantumStorage
 			return stringBuilder.ToString();
 		}
 
-		public override IEnumerable<Command> CompGetGizmosExtra()
+		public override IEnumerable<Gizmo> CompGetGizmosExtra()
 		{
 			Command_Toggle commandSparkles = new Command_Toggle();
 			commandSparkles.isActive = () => sparklesEnabled;
@@ -116,7 +116,7 @@ namespace RT_QuantumStorage
 			{
 				if (compPowerTrader == null || compPowerTrader.PowerOn)
 				{
-					if (parent.OccupiedRect().CenterCell.Priority() == StoragePriority.Unstored)
+					if (parent.OccupiedRect().CenterCell.Priority(parent.Map) == StoragePriority.Unstored)
 					{
 						valid = false;
 					}
@@ -146,7 +146,7 @@ namespace RT_QuantumStorage
 							{
 								foreach (IntVec3 stockpileCell in compStockpile.parent.OccupiedRect().Cells)
 								{
-									stockpileCell.ThrowSparkle();
+									stockpileCell.ThrowSparkle(parent.Map);
 								}
 							}
 							compStockpile.DefragStacks();
@@ -173,8 +173,8 @@ namespace RT_QuantumStorage
 							CompRTQuantumChunkSilo compChunkSilo = compChunkSilos.First();
 							foreach (IntVec3 chunkSiloCell in compChunkSilo.parent.OccupiedRect().Cells)
 							{
-								if (sparklesEnabled) chunkSiloCell.ThrowSparkle();
-								List<Thing> cellThings = chunkSiloCell.GetItemList();
+								if (sparklesEnabled) chunkSiloCell.ThrowSparkle(parent.Map);
+								List<Thing> cellThings = chunkSiloCell.GetItemList(parent.Map);
 								if (cellThings.Count != 0)
 								{
 									QueueThing(cellThings.RandomElement());
@@ -212,7 +212,7 @@ namespace RT_QuantumStorage
 					{
 						CompRTQuantumWarehouse compWarehouse = parent.FindWarehouse();
 						valid = (compWarehouse != null && compWarehouse == this
-							&& parent.OccupiedRect().CenterCell.Priority() != StoragePriority.Unstored);
+							&& parent.OccupiedRect().CenterCell.Priority(parent.Map) != StoragePriority.Unstored);
 					}
 				}
 				else
@@ -248,17 +248,17 @@ namespace RT_QuantumStorage
 			CompRTQuantumStockpile targetStockpile = compStockpiles[qsTargetIndex];
 			foreach (IntVec3 targetCell in targetStockpile.parent.OccupiedRect().Cells)
 			{
-				if (sparklesEnabled) targetCell.ThrowSparkle();
+				if (sparklesEnabled) targetCell.ThrowSparkle(parent.Map);
 				foreach (IntVec3 sourceCell in sourceStockpile.parent.OccupiedRect().Cells)
 				{
-					List<Thing> targetThings = targetCell.GetItemList();
+					List<Thing> targetThings = targetCell.GetItemList(parent.Map);
 					for (int i = 0; i < targetThings.Count(); i++)
 					{
 						bool itemWasMoved = false;
 						Thing targetThing = targetThings[i];
-						if (targetThing != null && targetCell.AllowedToAccept(targetThing))
+						if (targetThing != null && targetCell.AllowedToAccept(parent.Map, targetThing))
 						{
-							List<Thing> sourceThings = sourceCell.GetItemList();
+							List<Thing> sourceThings = sourceCell.GetItemList(parent.Map);
 							for (int j = 0; j < sourceThings.Count(); j++)
 							{
 								Thing sourceThing = sourceThings[j];
@@ -268,12 +268,12 @@ namespace RT_QuantumStorage
 									int targetStackCount = targetThing.stackCount;
 									if (targetThing.TryAbsorbStack(sourceThing, true))
 									{
-										sourceCell.ThrowDustPuff();
+										sourceCell.ThrowDustPuff(parent.Map);
 									}
 									if (targetStackCount != targetThing.stackCount)
 									{
 										ForbidUtility.SetForbidden(targetThing, false, false);
-										targetCell.DropSound(targetThing.def);
+										targetCell.DropSound(parent.Map, targetThing.def);
 									}
 									itemWasMoved = true;
 									break;
@@ -292,8 +292,8 @@ namespace RT_QuantumStorage
 			CompRTQuantumStockpile targetStockpile = compStockpiles[qsTargetIndex];
 			foreach (IntVec3 sourceCell in sourceStockpile.parent.OccupiedRect().Cells)
 			{
-				if (sparklesEnabled) sourceCell.ThrowSparkle();
-				List<Thing> sourceThingsWithChunks = sourceCell.GetItemList(true);
+				if (sparklesEnabled) sourceCell.ThrowSparkle(parent.Map);
+				List<Thing> sourceThingsWithChunks = sourceCell.GetItemList(parent.Map, true);
 				foreach (Thing thing in sourceThingsWithChunks)
 				{
 					if (thing.IsChunk())
@@ -304,29 +304,29 @@ namespace RT_QuantumStorage
 				}
 				foreach (IntVec3 targetCell in targetStockpile.parent.OccupiedRect().Cells)
 				{
-					List<Thing> targetThings = targetCell.GetItemList();
-					List<Thing> sourceThings = sourceCell.GetItemList();
+					List<Thing> targetThings = targetCell.GetItemList(parent.Map);
+					List<Thing> sourceThings = sourceCell.GetItemList(parent.Map);
 					Thing targetThing = (targetThings.Count == 0) ? (null) : (targetThings[0]);
 					Thing sourceThing = (sourceThings.Count == 0) ? (null) : (sourceThings[0]);
 					if (sourceThing != null && targetThings.Count < sourceThings.Count - 1
-						&& targetCell.AllowedToAccept(sourceThing))
+						&& targetCell.AllowedToAccept(parent.Map, sourceThing))
 					{
-						sourceCell.ThrowDustPuff();
-						Thing thing = GenSpawn.Spawn(sourceThing.SplitOff(sourceThing.stackCount), targetCell);
-						targetCell.DropSound(thing.def);
-						SlotGroup slotGroup = targetCell.GetSlotGroup();
+						sourceCell.ThrowDustPuff(parent.Map);
+						Thing thing = GenSpawn.Spawn(sourceThing.SplitOff(sourceThing.stackCount), targetCell, parent.Map);
+						targetCell.DropSound(parent.Map, thing.def);
+						SlotGroup slotGroup = targetCell.GetSlotGroup(parent.Map);
 						if (slotGroup != null && slotGroup.parent != null)
 						{
 							slotGroup.parent.Notify_ReceivedThing(thing);
 						}
 					}
 					else if (targetThing != null && sourceThings.Count < targetThings.Count - 1
-						&& sourceCell.AllowedToAccept(targetThing))
+						&& sourceCell.AllowedToAccept(parent.Map, targetThing))
 					{
-						targetCell.ThrowDustPuff();
-						Thing thing = GenSpawn.Spawn(targetThing.SplitOff(targetThing.stackCount), sourceCell);
-						sourceCell.DropSound(thing.def);
-						SlotGroup slotGroup = sourceCell.GetSlotGroup();
+						targetCell.ThrowDustPuff(parent.Map);
+						Thing thing = GenSpawn.Spawn(targetThing.SplitOff(targetThing.stackCount), sourceCell, parent.Map);
+						sourceCell.DropSound(parent.Map, thing.def);
+						SlotGroup slotGroup = sourceCell.GetSlotGroup(parent.Map);
 						if (slotGroup != null && slotGroup.parent != null)
 						{
 							slotGroup.parent.Notify_ReceivedThing(thing);
@@ -345,8 +345,8 @@ namespace RT_QuantumStorage
 				bool chunkMoved = false;
 				foreach (IntVec3 sourceCell in sourceChunkSilo.parent.OccupiedRect().Cells)
 				{
-					if (sparklesEnabled) sourceCell.ThrowSparkle();
-					List<Thing> sourceThings = sourceCell.GetItemList(true);
+					if (sparklesEnabled) sourceCell.ThrowSparkle(parent.Map);
+					List<Thing> sourceThings = sourceCell.GetItemList(parent.Map, true);
 					foreach (Thing sourceThing in sourceThings)
 					{
 						if (sourceThing.IsChunk())
@@ -368,7 +368,7 @@ namespace RT_QuantumStorage
 				{
 					foreach (IntVec3 targetCell in targetChunkSilo.parent.OccupiedRect().Cells)
 					{
-						targetCell.ThrowSparkle();
+						targetCell.ThrowSparkle(parent.Map);
 					}
 				}
 			}
@@ -376,8 +376,8 @@ namespace RT_QuantumStorage
 			{
 				foreach (IntVec3 sourceCell in sourceChunkSilo.parent.OccupiedRect().Cells)
 				{
-					if (sparklesEnabled) sourceCell.ThrowSparkle();
-					List<Thing> sourceThings = sourceCell.GetItemList();
+					if (sparklesEnabled) sourceCell.ThrowSparkle(parent.Map);
+					List<Thing> sourceThings = sourceCell.GetItemList(parent.Map);
 					if (sourceThings.Count != 0)
 					{
 						QueueThing(sourceThings.RandomElement());
@@ -387,7 +387,7 @@ namespace RT_QuantumStorage
 				{
 					foreach (IntVec3 targetCell in targetChunkSilo.parent.OccupiedRect().Cells)
 					{
-						targetCell.ThrowSparkle();
+						targetCell.ThrowSparkle(parent.Map);
 					}
 				}
 			}
@@ -404,11 +404,11 @@ namespace RT_QuantumStorage
 					CompRTQuantumStockpile compStockpile = compStockpiles.RandomElement();
 					foreach (IntVec3 stockpileCell in compStockpile.parent.OccupiedRect().Cells)
 					{
-						List<Thing> stockpileThings = stockpileCell.GetItemList();
+						List<Thing> stockpileThings = stockpileCell.GetItemList(parent.Map);
 						for (int i = 0; i < stockpileThings.Count; i++)
 						{
 							Thing stockpileThing = stockpileThings[i];
-							if (stockpileCell.AllowedToAccept(stockpileThing)
+							if (stockpileCell.AllowedToAccept(parent.Map, stockpileThing)
 								&& compRelay.ReceiveThing(stockpileThing))
 							{
 								itemSent = true;
@@ -423,11 +423,11 @@ namespace RT_QuantumStorage
 					CompRTQuantumChunkSilo compChunkSilo = compChunkSilos.RandomElement();
 					foreach (IntVec3 chunkSiloCell in compChunkSilo.parent.OccupiedRect().Cells)
 					{
-						List<Thing> chunkSiloThings = chunkSiloCell.GetItemList(true);
+						List<Thing> chunkSiloThings = chunkSiloCell.GetItemList(parent.Map, true);
 						for (int i = 0; i < chunkSiloThings.Count; i++)
 						{
 							Thing chunkSiloThing = chunkSiloThings[i];
-							if (chunkSiloCell.AllowedToAccept(chunkSiloThing)
+							if (chunkSiloCell.AllowedToAccept(parent.Map, chunkSiloThing)
 								&& compRelay.ReceiveThing(chunkSiloThing))
 							{
 								itemSent = true;
