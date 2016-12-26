@@ -184,7 +184,8 @@ namespace RT_QuantumStorage
 					{
 						IntVec3 thingToReceiveCell = thingToReceive.Position;
 						List<Thing> thingsReceiving = cellReceiving.GetItemList(parent.Map);
-						if (thingsReceiving.Count < maxStacks)
+						if (thingsReceiving.Count < maxStacks
+							&& thingToReceive.stackCount > 0)
 						{
 							thingToReceiveCell.ThrowDustPuff(parent.Map);
 							Thing thing = GenSpawn.Spawn(thingToReceive.SplitOff(thingToReceive.stackCount), cellReceiving, parent.Map);

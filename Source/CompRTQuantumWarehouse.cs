@@ -309,7 +309,8 @@ namespace RT_QuantumStorage
 					Thing targetThing = (targetThings.Count == 0) ? (null) : (targetThings[0]);
 					Thing sourceThing = (sourceThings.Count == 0) ? (null) : (sourceThings[0]);
 					if (sourceThing != null && targetThings.Count < sourceThings.Count - 1
-						&& targetCell.AllowedToAccept(parent.Map, sourceThing))
+						&& targetCell.AllowedToAccept(parent.Map, sourceThing)
+						&& sourceThing.stackCount > 0)
 					{
 						sourceCell.ThrowDustPuff(parent.Map);
 						Thing thing = GenSpawn.Spawn(sourceThing.SplitOff(sourceThing.stackCount), targetCell, parent.Map);
@@ -321,7 +322,8 @@ namespace RT_QuantumStorage
 						}
 					}
 					else if (targetThing != null && sourceThings.Count < targetThings.Count - 1
-						&& sourceCell.AllowedToAccept(parent.Map, targetThing))
+						&& sourceCell.AllowedToAccept(parent.Map, targetThing)
+						&& targetThing.stackCount > 0)
 					{
 						targetCell.ThrowDustPuff(parent.Map);
 						Thing thing = GenSpawn.Spawn(targetThing.SplitOff(targetThing.stackCount), sourceCell, parent.Map);
