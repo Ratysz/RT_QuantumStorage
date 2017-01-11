@@ -27,7 +27,8 @@ namespace RT_QuantumStorage
 					else if (thing.def.entityDefToBuild != null)
 					{
 						ThingDef thingDef = thing.def.entityDefToBuild as ThingDef;
-						if (null != thingDef.comps &&
+						if (null != thingDef &&
+							null != thingDef.comps &&
 							null != thingDef.comps.Find(x => typeof(CompRTQuantumStockpile) == x.compClass))
 						{
 							return "PlaceWorker_RTNoQSOverlap".Translate();
