@@ -12,7 +12,6 @@ At the same time, connected warehouse will try to push items onto the relay, as 
 		<baseCost>2000</baseCost>
 		<techLevel>Spacer</techLevel>
 		<prerequisites>
-			<li>MicroelectronicsBasics</li>
 			<li>ResearchProject_RTQuantumWarehouse</li>
 		</prerequisites>
 		<requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>

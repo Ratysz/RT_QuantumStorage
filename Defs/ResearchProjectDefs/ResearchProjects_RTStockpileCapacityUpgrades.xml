@@ -8,7 +8,6 @@
 		<baseCost>2000</baseCost>
 		<techLevel>Spacer</techLevel>
 		<prerequisites>
-			<li>MicroelectronicsBasics</li>
 			<li>ResearchProject_RTQuantumStockpile</li>
 		</prerequisites>
 		<requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
@@ -32,7 +31,6 @@
 		<baseCost>2000</baseCost>
 		<techLevel>Spacer</techLevel>
 		<prerequisites>
-			<li>MicroelectronicsBasics</li>
 			<li>ResearchProject_RTStockpileCapacityUpgrade_1</li>
 		</prerequisites>
 		<requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
@@ -53,7 +51,6 @@
 		<baseCost>2000</baseCost>
 		<techLevel>Spacer</techLevel>
 		<prerequisites>
-			<li>MicroelectronicsBasics</li>
 			<li>ResearchProject_RTStockpileCapacityUpgrade_2</li>
 		</prerequisites>
 		<requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
@@ -74,7 +71,6 @@
 		<baseCost>2000</baseCost>
 		<techLevel>Spacer</techLevel>
 		<prerequisites>
-			<li>MicroelectronicsBasics</li>
 			<li>ResearchProject_RTStockpileCapacityUpgrade_3</li>
 		</prerequisites>
 		<requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
