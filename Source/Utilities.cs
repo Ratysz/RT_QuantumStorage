@@ -93,11 +93,18 @@ namespace RT_QuantumStorage
 			{
 				return ((Zone_Stockpile)cell.GetZone(map)).GetStoreSettings().AllowedToAccept(thing);
 			}
-			Building_Storage buildingStorage = (Building_Storage)cell.GetThingList(map).Find(x => x.GetType().ToString().Equals("RimWorld.Building_Storage"));
+			foreach (Thing mapThing in cell.GetThingList(map))
+			{
+				if (typeof(Building_Storage).IsAssignableFrom(mapThing.GetType()))
+				{
+					return ((Building_Storage)mapThing).GetStoreSettings().AllowedToAccept(thing);
+				}
+			}
+			/*Building_Storage buildingStorage = (Building_Storage)cell.GetThingList(map).Find(x => typeof(Building_Storage) == x.GetType());//x.GetType().ToString().Equals("RimWorld.Building_Storage"));
 			if (buildingStorage != null)
 			{
 				return buildingStorage.GetStoreSettings().AllowedToAccept(thing);
-			}
+			}*/
 			return false;
 		}
 
@@ -113,11 +120,18 @@ namespace RT_QuantumStorage
 			{
 				return ((Zone_Stockpile)cell.GetZone(map)).GetStoreSettings().Priority;
 			}
-			Building_Storage buildingStorage = (Building_Storage)cell.GetThingList(map).Find(x => x.GetType().ToString().Equals("RimWorld.Building_Storage"));
+			foreach (Thing mapThing in cell.GetThingList(map))
+			{
+				if (typeof(Building_Storage).IsAssignableFrom(mapThing.GetType()))
+				{
+					return ((Building_Storage)mapThing).GetStoreSettings().Priority;
+				}
+			}
+			/*Building_Storage buildingStorage = (Building_Storage)cell.GetThingList(map).Find(x => typeof(Building_Storage) == x.GetType());
 			if (buildingStorage != null)
 			{
 				return buildingStorage.GetStoreSettings().Priority;
-			}
+			}*/
 			return StoragePriority.Unstored;
 		}
 
