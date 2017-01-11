@@ -40,7 +40,7 @@
 		<rotatable>False</rotatable>
 		<statBases>
 			<MaxHitPoints>100</MaxHitPoints>
-			<WorkToMake>1000</WorkToMake>
+			<WorkToBuild>1000</WorkToBuild>
 			<Flammability>1.0</Flammability>
 			<Beauty>0</Beauty>
 		</statBases>
