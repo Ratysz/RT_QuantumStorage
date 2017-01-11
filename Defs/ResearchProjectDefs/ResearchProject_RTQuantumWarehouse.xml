@@ -10,7 +10,6 @@ When powered, a zone's warehouse makes sure that all stockpiles (itself included
 		<baseCost>2500</baseCost>
 		<techLevel>Spacer</techLevel>
 		<prerequisites>
-			<li>MicroelectronicsBasics</li>
 			<li>ResearchProject_RTQuantumStockpile</li>
 		</prerequisites>
 		<requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
