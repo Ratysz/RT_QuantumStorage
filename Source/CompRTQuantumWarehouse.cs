@@ -55,7 +55,7 @@ namespace RT_QuantumStorage
 
 		public override void CompTick()
 		{
-			QuantumWarehouseTick(5);
+			QuantumWarehouseTick(50);
 		}
 
 		public override string CompInspectStringExtra()

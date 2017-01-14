@@ -60,7 +60,7 @@ namespace RT_QuantumStorage
 
 		public override void CompTick()
 		{
-			QuantumChunkSiloTick(5);
+			QuantumChunkSiloTick(50);
 		}
 
 		public override string CompInspectStringExtra()
