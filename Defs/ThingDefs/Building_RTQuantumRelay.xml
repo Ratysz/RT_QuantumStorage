@@ -8,7 +8,7 @@
 		<designationCategory>Furniture</designationCategory>
 
 		<category>Building</category>
-		<thingClass>Building_Storage</thingClass>
+		<thingClass>Building</thingClass>
 		<tickerType>Normal</tickerType>
 		<minifiedDef>MinifiedFurniture</minifiedDef>
 
@@ -25,16 +25,15 @@
 		<pathCost>40</pathCost>
 
 		<size>(2,2)</size>
-		<fillPercent>0.2</fillPercent>
 		<researchPrerequisites>
 			<li>ResearchProject_RTQuantumRelay</li>
 		</researchPrerequisites>
 		<leaveResourcesWhenKilled>True</leaveResourcesWhenKilled>
 		<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
 		<altitudeLayer>FloorEmplacement</altitudeLayer>
-		<passability>PassThroughOnly</passability>
+		<passability>Standable</passability>
 		<building>
-			<isEdifice>True</isEdifice>
+			<isEdifice>False</isEdifice>
 		</building>
 		<selectable>True</selectable>
 		<rotatable>False</rotatable>
@@ -63,9 +62,6 @@
 			<li Class="RT_QuantumStorage.CompProperties_RTQuantumRelay"/>
 			<li Class="CompProperties_Breakdownable"/>
 		</comps>
-		<inspectorTabs>
-			<li>ITab_Storage</li>
-		</inspectorTabs>
 	</ThingDef>
 
 </Buildings>

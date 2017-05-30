@@ -22,7 +22,7 @@ namespace RT_QuantumStorage
 		{
 			get
 			{
-				return (properties.maxChunks + ResearchModsSpecial.chunkSilosExtraChunksPerCell - 1)
+				return (properties.maxChunks + Mod.resModCapacity.chunkSilosExtraChunksPerCell - 1)
 					* parent.OccupiedRect().Cells.Count();
 			}
 		}
@@ -37,8 +37,9 @@ namespace RT_QuantumStorage
 
 		private bool sparklesEnabled = false;
 
-		public override void PostSpawnSetup()
+		public override void PostSpawnSetup(bool respawningAfterLoad)
 		{
+			base.PostSpawnSetup(respawningAfterLoad);
 			compPowerTrader = parent.TryGetComp<CompPowerTrader>();
 
 			lastTickStagger++;
@@ -97,8 +98,8 @@ namespace RT_QuantumStorage
 
 		public override void PostExposeData()
 		{
-			Scribe_Values.LookValue(ref sparklesEnabled, "sparklesEnabled", false);
-			Scribe_Collections.LookList(ref chunkRecords, "chunkRecords", LookMode.Deep);
+			Scribe_Values.Look(ref sparklesEnabled, "sparklesEnabled", false);
+			Scribe_Collections.Look(ref chunkRecords, "chunkRecords", LookMode.Deep);
 		}
 
 		private void QuantumChunkSiloTick(int tickAmount)
@@ -300,8 +301,8 @@ namespace RT_QuantumStorage
 
 		public void ExposeData()
 		{
-			Scribe_Defs.LookDef(ref chunkDef, "chunkDef");
-			Scribe_Values.LookValue(ref amount, "amount", 0);
+			Scribe_Defs.Look(ref chunkDef, "chunkDef");
+			Scribe_Values.Look(ref amount, "amount", 0);
 		}
 	}
 }

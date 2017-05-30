@@ -15,12 +15,7 @@
 			<li>MultiAnalyzer</li>
 		</requiredResearchFacilities>
 		<researchMods>
-			<li>
-				<specialAction>RT_QuantumStorage.ResearchModsSpecial.ResetCapacity</specialAction>
-			</li>
-			<li>
-				<specialAction>RT_QuantumStorage.ResearchModsSpecial.IncreaseCapacity</specialAction>
-			</li>
+			<li>RT_QuantumStorage.ResearchMod_IncreaseCapacity</li>
 		</researchMods>
 	</ResearchProjectDef>
 
@@ -38,9 +33,7 @@
 			<li>MultiAnalyzer</li>
 		</requiredResearchFacilities>
 		<researchMods>
-			<li>
-				<specialAction>RT_QuantumStorage.ResearchModsSpecial.IncreaseCapacity</specialAction>
-			</li>
+			<li>RT_QuantumStorage.ResearchMod_IncreaseCapacity</li>
 		</researchMods>
 	</ResearchProjectDef>
 
@@ -58,9 +51,7 @@
 			<li>MultiAnalyzer</li>
 		</requiredResearchFacilities>
 		<researchMods>
-			<li>
-				<specialAction>RT_QuantumStorage.ResearchModsSpecial.IncreaseCapacity</specialAction>
-			</li>
+			<li>RT_QuantumStorage.ResearchMod_IncreaseCapacity</li>
 		</researchMods>
 	</ResearchProjectDef>
 
@@ -78,9 +69,7 @@
 			<li>MultiAnalyzer</li>
 		</requiredResearchFacilities>
 		<researchMods>
-			<li>
-				<specialAction>RT_QuantumStorage.ResearchModsSpecial.IncreaseCapacity</specialAction>
-			</li>
+			<li>RT_QuantumStorage.ResearchMod_IncreaseCapacity</li>
 		</researchMods>
 	</ResearchProjectDef>
 

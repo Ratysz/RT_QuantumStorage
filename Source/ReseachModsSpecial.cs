@@ -1,36 +1,31 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
-using UnityEngine;
 using Verse;
-using RimWorld;
 
 namespace RT_QuantumStorage
 {
-    public static class ResearchModsSpecial
-    {
-		public static int stockpilesExtraStacksPerCell = 0;
-		public static int chunkSilosExtraChunksPerCell = 0;
-		public static bool modeSwitchEnabled = false;
+	public class ResearchMod_IncreaseCapacity : ResearchMod
+	{
+		public int stockpilesExtraStacksPerCell = 0;
+		public int chunkSilosExtraChunksPerCell = 0;
 
-		public static void EnableModeSwitch()
+		public override void Apply()
 		{
-			modeSwitchEnabled = true;
-		}
-
-		public static void ResetCapacity()
-		{
-			stockpilesExtraStacksPerCell = 0;
-			chunkSilosExtraChunksPerCell = 0;
-		}
-
-		public static void IncreaseCapacity()
-		{
+			Mod.resModCapacity = this;
 			stockpilesExtraStacksPerCell++;
 			chunkSilosExtraChunksPerCell++;
 			chunkSilosExtraChunksPerCell++;
 		}
-    }
+	}
+
+	public class ResearchMod_EnableModeSwitch : ResearchMod
+	{
+		public bool modeSwitchEnabled = false;
+
+		public override void Apply()
+		{
+			Mod.resModSwitch = this;
+			modeSwitchEnabled = true;
+		}
+	}
 }
