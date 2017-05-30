@@ -22,15 +22,15 @@ namespace RT_QuantumStorage
 		{
 			get
 			{
-				return properties.canSwitchModes || ResearchModsSpecial.modeSwitchEnabled;
+				return properties.canSwitchModes || Mod.resModSwitch.modeSwitchEnabled;
 			}
 		}
 
 		private bool switchedToChunkSilo = false;
 
-		public override void PostSpawnSetup()
+		public override void PostSpawnSetup(bool respawningAfterLoad)
 		{
-			base.PostSpawnSetup();
+			base.PostSpawnSetup(respawningAfterLoad);
 
 			SortOutComps();
 		}
@@ -80,7 +80,7 @@ namespace RT_QuantumStorage
 		public override void PostExposeData()
 		{
 			base.PostExposeData();
-			Scribe_Values.LookValue(ref switchedToChunkSilo, "switchedToChunkSilo", false);
+			Scribe_Values.Look(ref switchedToChunkSilo, "switchedToChunkSilo", false);
 		}
 
 		private void SortOutComps()
@@ -118,7 +118,7 @@ namespace RT_QuantumStorage
 					}
 
 					CompRTQuantumStockpile compStockpile = parent.TryGetComp<CompRTQuantumStockpile>();
-					compStockpile.PostSpawnSetup();
+					compStockpile.PostSpawnSetup(false);
 					compStockpile.PostExposeData();
 				}
 			}
@@ -155,7 +155,7 @@ namespace RT_QuantumStorage
 					}
 
 					CompRTQuantumChunkSilo compChunkSilo = parent.TryGetComp<CompRTQuantumChunkSilo>();
-					compChunkSilo.PostSpawnSetup();
+					compChunkSilo.PostSpawnSetup(false);
 					compChunkSilo.PostExposeData();
 				}
 			}

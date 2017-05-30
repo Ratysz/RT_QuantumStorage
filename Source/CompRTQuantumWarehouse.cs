@@ -38,9 +38,9 @@ namespace RT_QuantumStorage
 
 		private bool sparklesEnabled = false;
 
-		public override void PostSpawnSetup()
+		public override void PostSpawnSetup(bool respawningAfterLoad)
 		{
-			base.PostSpawnSetup();
+			base.PostSpawnSetup(respawningAfterLoad);
 			compPowerTrader = parent.TryGetComp<CompPowerTrader>();
 
 			lastTickStagger++;
@@ -107,7 +107,7 @@ namespace RT_QuantumStorage
 
 		public override void PostExposeData()
 		{
-			Scribe_Values.LookValue(ref sparklesEnabled, "sparklesEnabledQW", false);
+			Scribe_Values.Look(ref sparklesEnabled, "sparklesEnabledQW", false);
 		}
 
 		private void QuantumWarehouseTick(int tickAmount)

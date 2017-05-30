@@ -23,9 +23,7 @@ Despite this, the superposition is still stable, and does not require power to s
 			<li>MultiAnalyzer</li>
 		</requiredResearchFacilities>
 		<researchMods>
-			<li>
-				<specialAction>RT_QuantumStorage.ResearchModsSpecial.EnableModeSwitch</specialAction>
-			</li>
+			<li>RT_QuantumStorage.ResearchMod_EnableModeSwitch</li>
 		</researchMods>
 	</ResearchProjectDef>
 

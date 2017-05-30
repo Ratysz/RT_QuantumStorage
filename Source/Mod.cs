@@ -1,14 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
+﻿using Verse;
 using UnityEngine;
-using Verse;
-using RimWorld;
 
 namespace RT_QuantumStorage
 {
+	class Mod : Verse.Mod
+	{
+		public static ResearchMod_IncreaseCapacity resModCapacity;
+		public static ResearchMod_EnableModeSwitch resModSwitch;
+
+		public Mod(ModContentPack content) : base(content)
+		{
+
+		}
+	}
+
 	[StaticConstructorOnStartup]
 	public static class Resources
 	{
